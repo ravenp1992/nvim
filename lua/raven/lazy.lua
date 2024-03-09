@@ -16,11 +16,29 @@ local plugins = {
 	{
 		"Mofiqul/dracula.nvim",
 	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 
 	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+	},
+
+	-- neotree
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+		},
 	},
 
 	-- telescope
@@ -29,14 +47,6 @@ local plugins = {
 		tag = "0.1.5",
 		-- or                              , branch = '0.1.x',
 		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-
-	-- nvim-tree
-	{
-		"nvim-tree/nvim-tree.lua",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons", -- optional
-		},
 	},
 
 	-- lualine
@@ -50,11 +60,25 @@ local plugins = {
 		"mbbill/undotree",
 	},
 
+	-- neoscroll
+	{
+		"karb94/neoscroll.nvim",
+	},
+
 	-- lsp-zero
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
 		dependencies = {
+			-- neoconf
+			{
+				"folke/neoconf.nvim",
+				config = function()
+					require("neoconf").setup({
+						-- Configuration here, or leave empty to use defaults
+					})
+				end,
+			},
 			--- Uncomment these if you want to manage LSP servers from neovim
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
@@ -84,14 +108,15 @@ local plugins = {
 		lazy = false,
 	},
 
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+	},
+
 	-- autopair
 	{
-		"altermo/ultimate-autopair.nvim",
-		event = { "InsertEnter", "CmdlineEnter" },
-		branch = "v0.6", --recomended as each new version will have breaking changes
-		opts = {
-			--Config goes here
-		},
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {},
 	},
 
 	-- surround
@@ -104,6 +129,26 @@ local plugins = {
 				-- Configuration here, or leave empty to use defaults
 			})
 		end,
+	},
+
+	-- multi-cursor
+	-- lazy.nvim:
+	{
+		"smoka7/multicursors.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"smoka7/hydra.nvim",
+		},
+		opts = {},
+		cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+		keys = {
+			{
+				mode = { "v", "n" },
+				"<Leader>m",
+				"<cmd>MCstart<cr>",
+				desc = "Create a selection for selected text or word under the cursor",
+			},
+		},
 	},
 
 	-- markdown-preview
@@ -119,6 +164,16 @@ local plugins = {
 
 	-- code-runner
 	{ "CRAG666/code_runner.nvim", config = true },
+
+	-- laravel
+	{
+		"noahfrederick/vim-laravel",
+		dependencies = {
+			"tpope/vim-dispatch",
+			"tpope/vim-projectionist",
+			"noahfrederick/vim-composer",
+		},
+	},
 }
 
 require("lazy").setup(plugins, {})

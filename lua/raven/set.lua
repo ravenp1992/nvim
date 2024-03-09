@@ -1,17 +1,24 @@
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
+vim.cmd([[
+  augroup BladeFileTypeRelated
+    autocmd!
+    autocmd BufNewFile,BufRead *.blade.php set ft=blade
+  augroup END
+]])
 
 vim.g.mapleader = " "
 
 -- vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.opt.smartindent = false
+vim.opt.smartindent = true
 vim.opt.wrap = false
 
 vim.opt.swapfile = false

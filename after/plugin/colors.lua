@@ -17,22 +17,24 @@
 -- 	end,
 -- })
 
--- require("tokyonight").setup({
---   style = "moon",
---   on_colors = function(colors)
---     -- colors.comment = "#4689b7"
---     colors.comment = "#5f8575"
---   end,
---   on_highlights = function(hl, c)
---     hl.LineNr = {
---       fg = "#737aa2",
---     }
---   end,
---   -- transparent = true,
--- })
+require("tokyonight").setup({
+	style = "moon",
+	-- on_colors = function(colors)
+	-- 	colors.comment = colors.comment
+	-- end,
+	on_highlights = function(hl, c)
+		hl.LineNr = {
+			fg = c.dark3,
+		}
+		hl.CursorLineNr = {
+			fg = c.teal,
+		}
+	end,
+	-- transparent = true,
+})
 
 -- setup must be called before loading
--- vim.cmd.colorscheme("tokyonight-moon")
+vim.cmd.colorscheme("tokyonight-moon")
 
 -- require("nightfox").setup({
 -- 	options = {
@@ -45,8 +47,13 @@
 -- 	},
 -- })
 
-require("dracula").setup({
-	transparent_bg = true,
-})
+-- require("dracula").setup({
+-- 	transparent_bg = true,
+-- 	overrides = function(colors)
+-- 		return {
+-- 			CursorLineNr = { fg = colors.yellow },
+-- 		}
+-- 	end,
+-- })
 
-vim.cmd.colorscheme("dracula")
+-- vim.cmd.colorscheme("dracula")

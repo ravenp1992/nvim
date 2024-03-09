@@ -1,5 +1,6 @@
 -- vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>ex", vim.cmd.NvimTreeToggle)
+-- vim.keymap.set("n", "<leader>ex", vim.cmd.NvimTreeToggle)
+vim.keymap.set("n", "<leader>ex", ":Neotree toggle<CR>", { noremap = true, silent = false })
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 

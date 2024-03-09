@@ -6,5 +6,9 @@ require("code_runner").setup({
 		-- },
 		javascript = "bun run",
 		typescript = "bun run",
+		php = {
+			"cd $dir &&",
+			"php $fileName",
+		},
 	},
 })
