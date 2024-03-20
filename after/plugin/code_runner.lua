@@ -10,5 +10,8 @@ require("code_runner").setup({
 			"cd $dir &&",
 			"php $fileName",
 		},
+		go = {
+			"go run",
+		},
 	},
 })

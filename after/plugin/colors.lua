@@ -57,3 +57,4 @@ vim.cmd.colorscheme("tokyonight-moon")
 -- })
 
 -- vim.cmd.colorscheme("dracula")
+-- vim.cmd.colorscheme("fizz")

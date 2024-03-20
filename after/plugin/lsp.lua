@@ -40,6 +40,7 @@ lsp_zero.format_on_save({
 		["gopls"] = { "go" },
 		["prismals"] = { "prisma" },
 		["intelephense"] = { "php" },
+		["ruby_ls"] = { "ruby" },
 	},
 })
 

@@ -17,6 +17,11 @@ local plugins = {
 		"Mofiqul/dracula.nvim",
 	},
 	{
+		"sebasruiz09/fizz.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
