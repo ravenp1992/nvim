@@ -13,5 +13,13 @@ require("code_runner").setup({
 		go = {
 			"go run",
 		},
+		ruby = {
+			"cd $dir &&",
+			"ruby $fileName",
+		},
+		dart = {
+			"cd $dir &&",
+			"dart $fileName",
+		},
 	},
 })

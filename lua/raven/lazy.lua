@@ -12,15 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+	-- vim-tmux-navigator
+	{ "christoomey/vim-tmux-navigator" },
+
 	-- colorscheme
-	{
-		"Mofiqul/dracula.nvim",
-	},
-	{
-		"sebasruiz09/fizz.nvim",
-		lazy = false,
-		priority = 1000,
-	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -34,16 +31,27 @@ local plugins = {
 		build = ":TSUpdate",
 	},
 
-	-- neotree
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
 		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
-			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+			"nvim-tree/nvim-web-devicons",
 		},
+		config = function()
+			require("nvim-tree").setup({
+				view = {
+					side = "right",
+					width = 30,
+				},
+				filters = {
+					git_ignored = false,
+				},
+				update_focused_file = {
+					enable = true,
+				},
+			})
+		end,
 	},
 
 	-- telescope
@@ -68,6 +76,14 @@ local plugins = {
 	-- neoscroll
 	{
 		"karb94/neoscroll.nvim",
+	},
+
+	-- git
+	{
+		"tanvirtin/vgit.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
 	},
 
 	-- lsp-zero
@@ -137,7 +153,6 @@ local plugins = {
 	},
 
 	-- multi-cursor
-	-- lazy.nvim:
 	{
 		"smoka7/multicursors.nvim",
 		event = "VeryLazy",
@@ -154,6 +169,12 @@ local plugins = {
 				desc = "Create a selection for selected text or word under the cursor",
 			},
 		},
+	},
+
+	-- tabline
+	{
+		"seblj/nvim-tabline",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
 	-- markdown-preview
@@ -178,6 +199,42 @@ local plugins = {
 			"tpope/vim-projectionist",
 			"noahfrederick/vim-composer",
 		},
+	},
+
+	{
+		"tpope/vim-rails",
+	},
+
+	{
+		"barrett-ruth/live-server.nvim",
+		build = "npm add -g live-server",
+		cmd = { "LiveServerStart", "LiveServerStop" },
+		config = true,
+	},
+
+	-- {
+	-- 	"github/copilot.vim",
+	-- },
+
+	{
+		"akinsho/flutter-tools.nvim",
+		lazy = false,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"stevearc/dressing.nvim", -- optional for vim.ui.select
+		},
+	},
+
+	{
+		"akinsho/pubspec-assist.nvim",
+		requires = "plenary.nvim",
+		config = function()
+			require("pubspec-assist").setup()
+		end,
+	},
+
+	{
+		"wa11breaker/flutter-bloc.nvim",
 	},
 }
 
