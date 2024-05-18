@@ -12,17 +12,47 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+	-- lsp-zero
+	{
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v3.x",
+	},
+	{
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	},
+	{
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/nvim-cmp",
+		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
+	},
+
+	-- react snippets
+	{
+		"mlaursen/vim-react-snippets",
+	},
+
+	-- formatting
+	{
+		"stevearc/conform.nvim",
+		opts = {},
+	},
+
+	-- linting
+	{
+		"mfussenegger/nvim-lint",
+	},
+
 	-- vim-tmux-navigator
 	{ "christoomey/vim-tmux-navigator" },
 
 	-- colorscheme
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
+		"catppuccin/nvim",
+		name = "catppuccin",
 		priority = 1000,
-		opts = {},
 	},
 
 	-- treesitter
@@ -86,40 +116,6 @@ local plugins = {
 		},
 	},
 
-	-- lsp-zero
-	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
-		dependencies = {
-			-- neoconf
-			{
-				"folke/neoconf.nvim",
-				config = function()
-					require("neoconf").setup({
-						-- Configuration here, or leave empty to use defaults
-					})
-				end,
-			},
-			--- Uncomment these if you want to manage LSP servers from neovim
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
-
-			-- LSP Support
-			{ "neovim/nvim-lspconfig" },
-			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "L3MON4D3/LuaSnip" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			-- Snippets
-			{ "rafamadriz/friendly-snippets" },
-
-			-- Formatting
-			-- { "jose-elias-alvarez/null-ls.nvim" },
-			{ "nvimtools/none-ls.nvim" },
-		},
-	},
-
 	-- comment
 	{
 		"numToStr/Comment.nvim",
@@ -152,29 +148,14 @@ local plugins = {
 		end,
 	},
 
-	-- multi-cursor
-	{
-		"smoka7/multicursors.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"smoka7/hydra.nvim",
-		},
-		opts = {},
-		cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-		keys = {
-			{
-				mode = { "v", "n" },
-				"<Leader>m",
-				"<cmd>MCstart<cr>",
-				desc = "Create a selection for selected text or word under the cursor",
-			},
-		},
-	},
-
 	-- tabline
 	{
 		"seblj/nvim-tabline",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+
+	{
+		"norcalli/nvim-colorizer.lua",
 	},
 
 	-- markdown-preview
@@ -201,41 +182,33 @@ local plugins = {
 		},
 	},
 
-	{
-		"tpope/vim-rails",
-	},
+	-- {
+	-- 	"tpope/vim-rails",
+	-- },
 
-	{
-		"barrett-ruth/live-server.nvim",
-		build = "npm add -g live-server",
-		cmd = { "LiveServerStart", "LiveServerStop" },
-		config = true,
-	},
+	-- {
+	-- 	"barrett-ruth/live-server.nvim",
+	-- 	build = "npm add -g live-server",
+	-- 	cmd = { "LiveServerStart", "LiveServerStop" },
+	-- 	config = true,
+	-- },
 
 	-- {
 	-- 	"github/copilot.vim",
 	-- },
 
-	{
-		"akinsho/flutter-tools.nvim",
-		lazy = false,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"stevearc/dressing.nvim", -- optional for vim.ui.select
-		},
-	},
+	-- {
+	-- 	"akinsho/flutter-tools.nvim",
+	-- 	lazy = false,
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"stevearc/dressing.nvim", -- optional for vim.ui.select
+	-- 	},
+	-- },
 
-	{
-		"akinsho/pubspec-assist.nvim",
-		requires = "plenary.nvim",
-		config = function()
-			require("pubspec-assist").setup()
-		end,
-	},
-
-	{
-		"wa11breaker/flutter-bloc.nvim",
-	},
+	-- {
+	-- 	"wa11breaker/flutter-bloc.nvim",
+	-- },
 }
 
 require("lazy").setup(plugins, {})

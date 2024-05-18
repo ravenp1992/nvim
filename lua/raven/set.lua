@@ -1,10 +1,10 @@
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
-vim.cmd([[
-  augroup BladeFileTypeRelated
-    autocmd!
-    autocmd BufNewFile,BufRead *.blade.php set ft=blade
-  augroup END
-]])
+-- vim.cmd([[
+--   augroup BladeFileTypeRelated
+--     autocmd!
+--     autocmd BufNewFile,BufRead *.blade.php set ft=blade
+--   augroup END
+-- ]])
 
 vim.g.mapleader = " "
 

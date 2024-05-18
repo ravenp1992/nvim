@@ -1,12 +1,13 @@
-require("flutter-tools").setup({
-	dev_log = {
-		enabled = true,
-		notify_errors = false,
-		open_cmd = "tabnew",
-	},
-	lsp = {
-		color = {
-			enabled = true,
-		},
-	},
-})
+-- require("flutter-tools").setup({
+-- 	dev_log = {
+-- 		enabled = true,
+-- 		notify_errors = false,
+-- 		open_cmd = "tabnew",
+-- 	},
+-- 	lsp = {
+-- 		color = {
+-- 			enabled = true,
+-- 			background_color = { r = 0, g = 0, b = 0 },
+-- 		},
+-- 	},
+-- })
