@@ -11,25 +11,19 @@ require("nvim-treesitter.configs").setup({
 
 	highlight = {
 		enable = true,
-		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-		-- Using this option may slow down your editor, and you may see some duplicate highlights.
-		-- Instead of true it can also be a list of languages
-		additional_vim_regex_highlighting = { "php", "ruby" },
 	},
 
 	indent = {
-		enable = false,
+		enable = true,
 	},
+
+	-- incremental_selection = {
+	-- 	enable = true,
+	-- 	keymaps = {
+	-- 		init_selection = "<Leader>ss", -- set to `false` to disable one of the mappings
+	-- 		node_incremental = "<Leader>si",
+	-- 		scope_incremental = "<Leader>sc",
+	-- 		node_decremental = "<Leader>sd",
+	-- 	},
+	-- },
 })
-
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-parser_config.blade = {
-	install_info = {
-		url = "https://github.com/EmranMR/tree-sitter-blade",
-		files = { "src/parser.c" },
-		branch = "main",
-	},
-	filetype = "blade",
-}

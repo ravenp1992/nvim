@@ -25,14 +25,13 @@ local plugins = {
 	{
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/nvim-cmp",
+		"hrsh7th/cmp-buffer",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 	},
 
-	-- react snippets
-	{
-		"mlaursen/vim-react-snippets",
-	},
+	-- snippets
+	{ "rafamadriz/friendly-snippets" },
 
 	-- formatting
 	{
@@ -49,11 +48,7 @@ local plugins = {
 	{ "christoomey/vim-tmux-navigator" },
 
 	-- colorscheme
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
 	-- treesitter
 	{
@@ -89,7 +84,10 @@ local plugins = {
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
 		-- or                              , branch = '0.1.x',
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
 	},
 
 	-- lualine
@@ -148,14 +146,17 @@ local plugins = {
 		end,
 	},
 
-	-- tabline
+	-- floating statuslines
 	{
-		"seblj/nvim-tabline",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		"b0o/incline.nvim",
+		-- Optional: Lazy load Incline
+		event = "VeryLazy",
 	},
 
+	-- trouble
 	{
-		"norcalli/nvim-colorizer.lua",
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
 	-- markdown-preview
@@ -170,7 +171,7 @@ local plugins = {
 	},
 
 	-- code-runner
-	{ "CRAG666/code_runner.nvim", config = true },
+	-- { "CRAG666/code_runner.nvim", config = true },
 
 	-- laravel
 	{
