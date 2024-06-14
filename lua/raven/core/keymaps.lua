@@ -22,9 +22,9 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabn<CR>", { desc = "Go to previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
--- keymap.set("v", "J", ":m '>+1<CR>gv=gv")
--- keymap.set("v", "K", ":m '<-2<CR>gv=gv")
---
--- keymap.set("n", "J", "mzJ`z")
--- keymap.set("n", "n", "nzzzv")
--- keymap.set("n", "N", "Nzzzv")
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+keymap.set("n", "J", "mzJ`z")
+keymap.set("n", "n", "nzzzv")
+keymap.set("n", "N", "Nzzzv")
