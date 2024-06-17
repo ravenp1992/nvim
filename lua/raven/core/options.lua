@@ -1,5 +1,11 @@
 local opt = vim.opt
 
+-- folding
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
+
 -- turn on termguicolors
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
