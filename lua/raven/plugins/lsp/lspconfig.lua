@@ -99,9 +99,9 @@ return {
 					end,
 				})
 			end,
-			["emmet_ls"] = function()
+			["emmet_language_server"] = function()
 				-- configure emmet language server
-				lspconfig["emmet_ls"].setup({
+				lspconfig["emmet_language_server"].setup({
 					capabilities = capabilities,
 					filetypes = {
 						"html",
@@ -112,6 +112,7 @@ return {
 						"scss",
 						"less",
 						"svelte",
+						"blade",
 					},
 				})
 			end,

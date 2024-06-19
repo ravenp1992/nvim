@@ -29,6 +29,7 @@ opt.smartcase = true
 opt.cursorline = true
 
 opt.scrolloff = 8
+opt.laststatus = 0
 
 -- no swap file, no backup, undofile, set undodir
 vim.opt.swapfile = false
