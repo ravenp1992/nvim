@@ -9,47 +9,28 @@ return {
 		local treesitter = require("nvim-treesitter.configs")
 
 		treesitter.setup({
-			highlight = {
-				enable = true,
+			ensure_installed = {
+				"c",
+				"lua",
+				"vim",
+				"vimdoc",
+				"query",
 			},
 
-			indent = { enable = true },
+			auto_install = true,
+
+			highlight = {
+				enable = true,
+				additional_vim_regex_highlighting = { "php" },
+			},
 
 			autotag = {
 				enable = true,
 			},
 
-			ensure_installed = {
-				"json",
-				"javascript",
-				"typescript",
-				"tsx",
-				"yaml",
-				"html",
-				"css",
-				"prisma",
-				"markdown",
-				"markdown_inline",
-				"svelte",
-				"lua",
-				"vim",
-				"dockerfile",
-				"gitignore",
-				"query",
-				"vimdoc",
-				"php",
-				"php_only",
-				"go",
+			indent = {
+				enable = false,
 			},
-			-- incremental_selection = {
-			-- 	enable = true,
-			-- 	keymaps = {
-			-- 		init_selection = "<C-space>",
-			-- 		node_incremental = "<C-space>",
-			-- 		scope_incremental = false,
-			-- 		node_decremental = "<bs>",
-			-- 	},
-			-- },
 		})
 
 		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()

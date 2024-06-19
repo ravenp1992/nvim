@@ -29,13 +29,12 @@ opt.smartcase = true
 opt.cursorline = true
 
 opt.scrolloff = 8
-opt.laststatus = 0
 
 -- no swap file, no backup, undofile, set undodir
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undofile = true
 
 -- backspace
 opt.backspace = "indent,eol,start"
@@ -47,5 +46,9 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.splitright = true
 opt.splitbelow = true
 
-vim.cmd([[autocmd BufEnter * set formatoptions-=cro]])
-vim.cmd([[autocmd BufEnter * setlocal formatoptions-=cro]])
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		vim.opt.formatoptions:remove({ "c", "r", "o" })
+	end,
+})

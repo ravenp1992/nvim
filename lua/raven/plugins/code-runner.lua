@@ -6,6 +6,10 @@ return {
 		coderunner.setup({
 			filetype = {
 				go = "go run",
+				php = {
+					"cd $dir &&",
+					"php $fileName",
+				},
 			},
 		})
 
