@@ -20,6 +20,7 @@ return {
 				liquid = { { "prettierd", "prettier" } },
 				lua = { "stylua" },
 				php = { "pint" },
+				blade = { "blade-formatter" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

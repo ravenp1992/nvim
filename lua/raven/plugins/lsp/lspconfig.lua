@@ -113,6 +113,7 @@ return {
 						"less",
 						"svelte",
 						"blade",
+						"php",
 					},
 				})
 			end,

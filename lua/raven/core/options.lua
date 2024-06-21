@@ -52,3 +52,12 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt.formatoptions:remove({ "c", "r", "o" })
 	end,
 })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "*.php",
+-- 	callback = function()
+-- 		vim.opt.filetype = "php.html"
+-- 	end,
+-- })
+
+-- autocmd filetype php set filetype=php.html
