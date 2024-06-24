@@ -10,6 +10,18 @@ return {
 					"cd $dir &&",
 					"php $fileName",
 				},
+				ruby = {
+					"cd $dir &&",
+					"ruby $fileName",
+				},
+				typescript = {
+					"cd $dir &&",
+					"bun $fileName",
+				},
+				javascript = {
+					"cd $dir &&",
+					"bun $fileName",
+				},
 			},
 		})
 
