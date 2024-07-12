@@ -12,6 +12,11 @@ return {
 						lazy_status.updates,
 						cond = lazy_status.has_updates,
 					},
+					{
+						require("noice").api.status.mode.get,
+						cond = require("noice").api.status.mode.has,
+						color = { fg = "#ff9e64" },
+					},
 					{ "encoding" },
 					{ "fileformat" },
 					{ "filetype" },

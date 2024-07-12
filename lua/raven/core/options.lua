@@ -6,8 +6,6 @@ opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true
 
--- opt.laststatus = 0
-
 -- turn on termguicolors
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
