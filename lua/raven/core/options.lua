@@ -6,7 +6,7 @@ opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true
 
-opt.laststatus = 0
+-- opt.laststatus = 0
 
 -- turn on termguicolors
 opt.termguicolors = true
@@ -20,7 +20,7 @@ opt.number = true
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
-opt.autoindent = false
+opt.autoindent = true
 
 opt.wrap = false
 

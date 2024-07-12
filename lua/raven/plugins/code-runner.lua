@@ -5,6 +5,7 @@ return {
 
 		coderunner.setup({
 			filetype = {
+				python = "python3 -u",
 				go = "go run",
 				php = {
 					"cd $dir &&",

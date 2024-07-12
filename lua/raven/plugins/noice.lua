@@ -15,7 +15,7 @@ return {
 	config = function()
 		local notify = require("notify")
 		-- this for transparency
-		notify.setup({ timeout = 5000, background_colour = "#000000", render = "wrapped-compact" })
+		notify.setup({ timeout = 5000, background_colour = "#000000", render = "wrapped-compact", max_width = 35 })
 
 		local noice = require("noice")
 

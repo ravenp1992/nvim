@@ -27,7 +27,8 @@ return {
 				"svelte",
 				"lua_ls",
 				"prismals",
-				"gopls",
+				"basedpyright",
+				"intelephense",
 			},
 		})
 	end,
