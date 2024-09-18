@@ -6,7 +6,10 @@ return {
 		coderunner.setup({
 			filetype = {
 				python = "python3 -u",
-				go = "go run",
+				go = {
+					"cd $dir &&",
+					"go run $fileName",
+				},
 				php = {
 					"cd $dir &&",
 					"php $fileName",
@@ -23,6 +26,10 @@ return {
 					"cd $dir &&",
 					"bun $fileName",
 				},
+				elixir = {
+					"cd $dir &&",
+					"elixir $fileName",
+				},
 			},
 		})
 
@@ -30,12 +37,12 @@ return {
 
 		keymap.set("n", "<leader>r", ":RunCode<CR>", { noremap = true, silent = false, desc = "CodeRunner run code" })
 		keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false, desc = "CodeRunner run file" })
-		keymap.set(
-			"n",
-			"<leader>rft",
-			":RunFile tab<CR>",
-			{ noremap = true, silent = false, desc = "CodeRunner run file tab" }
-		)
+		-- keymap.set(
+		-- 	"n",
+		-- 	"<leader>rft",
+		-- 	":RunFile tab<CR>",
+		-- 	{ noremap = true, silent = false, desc = "CodeRunner run file tab" }
+		-- )
 		keymap.set(
 			"n",
 			"<leader>rp",

@@ -9,14 +9,13 @@ return {
 			javascriptreact = { "eslint_d" },
 			typescript = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
-			svelte = { "eslint_d" },
 			python = { "eslint_d" },
+			go = { "golangcilint" },
 		}
 
 		local eslint_d = lint.linters.eslint_d
 
 		eslint_d.args = {
-			"--no-warn-ignored", -- <-- this is the key argument
 			"--format",
 			"json",
 			"--stdin",

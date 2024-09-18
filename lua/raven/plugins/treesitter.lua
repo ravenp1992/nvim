@@ -6,31 +6,15 @@ return {
 		"windwp/nvim-ts-autotag",
 	},
 	config = function()
-		local treesitter = require("nvim-treesitter.configs")
+		local configs = require("nvim-treesitter.configs")
 
-		treesitter.setup({
-			ensure_installed = {
-				"c",
-				"lua",
-				"vim",
-				"vimdoc",
-				"query",
-			},
-
+		configs.setup({
+			ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+			sync_install = false,
 			auto_install = true,
-
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = { "php" },
-			},
-
-			autotag = {
-				enable = true,
-			},
-
-			-- indent = {
-			-- 	enable = true,
-			-- },
+			highlight = { enable = true },
+			indent = { enable = true },
+			autotag = { enable = true },
 		})
 
 		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()

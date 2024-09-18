@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/neodev.nvim", opts = {} },
+		{ "folke/lazydev.nvim", opts = {} },
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -80,25 +80,56 @@ return {
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			function(server_name)
+				if server_name == "tsserver" then
+					server_name = "ts_ls"
+				end
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
 				})
 			end,
-			["svelte"] = function()
+			["ts_ls"] = function()
+				local vue_typescript_plugin = require("mason-registry")
+					.get_package("vue-language-server")
+					:get_install_path() .. "/node_modules/@vue/language-server" .. "/node_modules/@vue/typescript-plugin"
+
 				-- configure svelte server
-				lspconfig["svelte"].setup({
+				lspconfig["ts_ls"].setup({
 					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						vim.api.nvim_create_autocmd("BufWritePost", {
-							pattern = { "*.js", "*.ts" },
-							callback = function(ctx)
-								-- Here use ctx.match instead of ctx.file
-								client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-							end,
-						})
-					end,
+					init_options = {
+						plugins = {
+							{
+								name = "@vue/typescript-plugin",
+								location = vue_typescript_plugin,
+								languages = { "javascript", "typescript", "vue" },
+							},
+						},
+					},
+					filetypes = {
+						"javascript",
+						"javascriptreact",
+						"javascript.jsx",
+						"typescript",
+						"typescriptreact",
+						"typescript.tsx",
+						"vue",
+					},
 				})
 			end,
+			-- ["svelte"] = function()
+			-- 	-- configure svelte server
+			-- 	lspconfig["svelte"].setup({
+			-- 		capabilities = capabilities,
+			-- 		on_attach = function(client, bufnr)
+			-- 			vim.api.nvim_create_autocmd("BufWritePost", {
+			-- 				pattern = { "*.js", "*.ts" },
+			-- 				callback = function(ctx)
+			-- 					-- Here use ctx.match instead of ctx.file
+			-- 					client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+			-- 				end,
+			-- 			})
+			-- 		end,
+			-- 	})
+			-- end,
 			["emmet_language_server"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_language_server"].setup({
@@ -113,6 +144,8 @@ return {
 						"less",
 						"svelte",
 						"blade",
+						"heex",
+						"vue",
 					},
 				})
 			end,
@@ -131,6 +164,14 @@ return {
 							},
 						},
 					},
+				})
+			end,
+			["lexical"] = function()
+				-- configure lua server (with special settings)
+				lspconfig["lexical"].setup({
+					capabilities = capabilities,
+					filetypes = { "elixir", "eelixir", "heex" },
+					cmd = { "/Users/ravenparagas/lsp/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
 				})
 			end,
 		})

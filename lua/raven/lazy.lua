@@ -12,11 +12,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "raven.plugins" }, { import = "raven.plugins.lsp" } }, {
-  checker = {
-    enable = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  }
+	checker = {
+		enable = true,
+		notify = false,
+	},
+	change_detection = {
+		notify = false,
+	},
 })

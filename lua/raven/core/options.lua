@@ -53,6 +53,20 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("RecordingEnter", {
+	pattern = "*",
+	callback = function()
+		opt.cmdheight = 1
+	end,
+})
+
+vim.api.nvim_create_autocmd("RecordingLeave", {
+	pattern = "*",
+	callback = function()
+		opt.cmdheight = 0
+	end,
+})
+
 -- vim.api.nvim_create_autocmd("FileType", {
 -- 	pattern = "*.php",
 -- 	callback = function()

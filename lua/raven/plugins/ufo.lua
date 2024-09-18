@@ -16,13 +16,13 @@ return {
 			ufo.closeAllFolds()
 		end, { desc = "UFO close all folds" })
 
-		keymap.set("n", "zr", function()
-			ufo.openFoldsExceptKinds()
-		end, { desc = "UFO open folds except kinds" })
+		-- keymap.set("n", "zr", function()
+		-- 	ufo.openFoldsExceptKinds()
+		-- end, { desc = "UFO open folds except kinds" })
 
-		keymap.set("n", "zm", function()
-			ufo.closeFoldsWith()
-		end, { desc = "UFO open folds with" })
+		-- keymap.set("n", "zm", function()
+		-- 	ufo.closeFoldsWith()
+		-- end, { desc = "UFO open folds with" })
 
 		keymap.set("n", "K", function()
 			local winid = ufo.peekFoldedLinesUnderCursor()

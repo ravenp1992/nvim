@@ -17,13 +17,17 @@ return {
 				mappings = {
 					i = {
 						["<C-[>"] = actions.close,
-						-- ["<C-k>"] = actions.move_selection_previous,
-						-- ["<C-j>"] = actions.move_selection_next,
+						["<C-k>"] = actions.move_selection_previous,
+						["<C-j>"] = actions.move_selection_next,
 						-- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 					},
 				},
 			},
 			pickers = {
+				find_files = {
+					-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+					find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+				},
 				buffers = {
 					ignore_current_buffer = true,
 					sort_lastused = true,
@@ -42,6 +46,5 @@ return {
 		keymap.set("n", "<leader>fG", "<cmd>Telescope git_files<cr>", { desc = "Fuzzy find git files in cwd" })
 		keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "List available help tags" })
 		keymap.set("n", "<leader>fs", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
-		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 	end,
 }
