@@ -24,7 +24,6 @@ return {
 				"cssls",
 				"tailwindcss",
 				"lua_ls",
-				"basedpyright",
 				"intelephense",
 			},
 		})
