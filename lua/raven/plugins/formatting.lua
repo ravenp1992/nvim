@@ -13,7 +13,7 @@ return {
 				javascriptreact = { "prettierd" },
 				typescriptreact = { "prettierd" },
 				-- svelte = { "prettierd" },
-				-- vue = { "prettierd" },
+				vue = { "prettierd" },
 				css = { "prettierd" },
 				html = { "prettierd" },
 				json = { "prettierd" },

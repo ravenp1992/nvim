@@ -26,7 +26,7 @@ opt.wrap = false
 opt.ignorecase = true
 opt.smartcase = true
 
-opt.cursorline = true
+-- opt.cursorline = true
 
 opt.scrolloff = 8
 
@@ -53,19 +53,19 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("RecordingEnter", {
-	pattern = "*",
-	callback = function()
-		opt.cmdheight = 1
-	end,
-})
+-- vim.api.nvim_create_autocmd("RecordingEnter", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		opt.cmdheight = 1
+-- 	end,
+-- })
 
-vim.api.nvim_create_autocmd("RecordingLeave", {
-	pattern = "*",
-	callback = function()
-		opt.cmdheight = 0
-	end,
-})
+-- vim.api.nvim_create_autocmd("RecordingLeave", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		opt.cmdheight = 0
+-- 	end,
+-- })
 
 -- vim.api.nvim_create_autocmd("FileType", {
 -- 	pattern = "*.php",
