@@ -2,7 +2,7 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
+		-- "hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/lazydev.nvim", opts = {} },
 	},
@@ -11,7 +11,7 @@ return {
 
 		local mason_lspconfig = require("mason-lspconfig")
 
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap
 
@@ -63,11 +63,11 @@ return {
 		})
 
 		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
-		capabilities.textDocument.foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly = true,
-		}
+		-- local capabilities = cmp_nvim_lsp.default_capabilities()
+		-- capabilities.textDocument.foldingRange = {
+		-- 	dynamicRegistration = false,
+		-- 	lineFoldingOnly = true,
+		-- }
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		-- (not in youtube nvim video)
@@ -80,11 +80,11 @@ return {
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			function(server_name)
-				if server_name == "tsserver" then
-					server_name = "ts_ls"
-				end
+				-- if server_name == "tsserver" then
+				-- 	server_name = "ts_ls"
+				-- end
 				lspconfig[server_name].setup({
-					capabilities = capabilities,
+					-- capabilities = capabilities,
 				})
 			end,
 			["ts_ls"] = function()
@@ -94,7 +94,7 @@ return {
 
 				-- configure svelte server
 				lspconfig["ts_ls"].setup({
-					capabilities = capabilities,
+					-- capabilities = capabilities,
 					init_options = {
 						plugins = {
 							{
@@ -115,25 +115,25 @@ return {
 					},
 				})
 			end,
-			-- ["svelte"] = function()
-			-- 	-- configure svelte server
-			-- 	lspconfig["svelte"].setup({
-			-- 		capabilities = capabilities,
-			-- 		on_attach = function(client, bufnr)
-			-- 			vim.api.nvim_create_autocmd("BufWritePost", {
-			-- 				pattern = { "*.js", "*.ts" },
-			-- 				callback = function(ctx)
-			-- 					-- Here use ctx.match instead of ctx.file
-			-- 					client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-			-- 				end,
-			-- 			})
-			-- 		end,
-			-- 	})
-			-- end,
+			["svelte"] = function()
+				-- configure svelte server
+				lspconfig["svelte"].setup({
+					-- capabilities = capabilities,
+					on_attach = function(client, bufnr)
+						vim.api.nvim_create_autocmd("BufWritePost", {
+							pattern = { "*.js", "*.ts" },
+							callback = function(ctx)
+								-- Here use ctx.match instead of ctx.file
+								client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+							end,
+						})
+					end,
+				})
+			end,
 			["emmet_language_server"] = function()
 				-- configure emmet language server
 				lspconfig["emmet_language_server"].setup({
-					capabilities = capabilities,
+					-- capabilities = capabilities,
 					filetypes = {
 						"html",
 						"typescriptreact",
@@ -152,7 +152,7 @@ return {
 			["lua_ls"] = function()
 				-- configure lua server (with special settings)
 				lspconfig["lua_ls"].setup({
-					capabilities = capabilities,
+					-- capabilities = capabilities,
 					settings = {
 						Lua = {
 							-- make the language server recognize "vim" global
@@ -169,7 +169,7 @@ return {
 			["lexical"] = function()
 				-- configure lua server (with special settings)
 				lspconfig["lexical"].setup({
-					capabilities = capabilities,
+					-- capabilities = capabilities,
 					filetypes = { "elixir", "eelixir", "heex" },
 					cmd = { "/Users/ravenparagas/lsp/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
 				})

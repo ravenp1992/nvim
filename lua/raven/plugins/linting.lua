@@ -9,6 +9,7 @@ return {
 			javascriptreact = { "eslint_d" },
 			typescript = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
+			svelte = { "eslint_d" },
 			python = { "eslint_d" },
 			go = { "golangcilint" },
 		}
@@ -30,7 +31,7 @@ return {
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			group = lint_augroup,
 			callback = function()
-				lint.try_lint()
+				pcall(require, "lint.try_lint")
 			end,
 		})
 

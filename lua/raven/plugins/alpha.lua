@@ -7,20 +7,18 @@ return {
 
 		-- Set header
 		dashboard.section.header.val = {
-			"                                                     ",
-			"  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-			"  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-			"  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-			"  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-			"  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-			"  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-			"                                                     ",
+			" ╔═══╗╔═══╗  ╔═╗ ╔╗╔═══╗ ",
+			" ║╔═╗║║╔═╗║  ║║╚╗║║╚╗╔╗║ ",
+			" ║║ ╚╝║╚═╝║╔╗║╔╗╚╝║ ║║║║ ",
+			" ║║╔═╗║╔╗╔╝╠╣║║╚╗║║ ║║║║ ",
+			" ║╚╩═║║║║╚╗║║║║ ║║║╔╝╚╝║ ",
+			" ╚═══╝╚╝╚═╝╚╝╚╝ ╚═╝╚═══╝ ",
 		}
 
 		-- Set menu
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  > New File", "<cmd>ene<CR>"),
-			-- dashboard.button("-", "  > Toggle File Explorer", "<cmd>NvimTreeToggle<CR>"),
+			dashboard.button("ee", "  > Toggle File Explorer", "<cmd>NvimTreeToggle<CR>"),
 			dashboard.button("SPC ff", "󰱼  > Find File", "<cmd>Telescope find_files<CR>"),
 			dashboard.button("SPC fg", "  > Find Word", "<cmd>Telescope live_grep<CR>"),
 			dashboard.button("SPC fs", "  > Grep String under cursor", "<cmd>Telescope grep_string<CR>"),

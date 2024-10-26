@@ -12,7 +12,7 @@ return {
 				typescript = { "prettierd" },
 				javascriptreact = { "prettierd" },
 				typescriptreact = { "prettierd" },
-				-- svelte = { "prettierd" },
+				svelte = { "prettierd" },
 				vue = { "prettierd" },
 				css = { "prettierd" },
 				html = { "prettierd" },

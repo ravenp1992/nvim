@@ -10,15 +10,18 @@ return {
 
 		nvimtree.setup({
 			view = {
-				side = "right",
 				width = 35,
 				relativenumber = true,
+				side = "right",
 			},
 			-- change folder arrow icons
 			renderer = {
 				indent_markers = {
 					enable = true,
 				},
+			},
+			update_focused_file = {
+				enable = true,
 			},
 			-- disable window_picker for
 			-- explorer to work well with
@@ -35,9 +38,6 @@ return {
 			},
 			git = {
 				ignore = false,
-			},
-			update_focused_file = {
-				enable = true,
 			},
 		})
 

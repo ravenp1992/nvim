@@ -31,6 +31,11 @@ return {
 				buffers = {
 					ignore_current_buffer = true,
 					sort_lastused = true,
+					mappings = {
+						i = {
+							["<C-d>"] = actions.delete_buffer + actions.move_to_top,
+						},
+					},
 				},
 			},
 		})
@@ -46,5 +51,6 @@ return {
 		keymap.set("n", "<leader>fG", "<cmd>Telescope git_files<cr>", { desc = "Fuzzy find git files in cwd" })
 		keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "List available help tags" })
 		keymap.set("n", "<leader>fs", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 	end,
 }

@@ -6,9 +6,9 @@ return {
 	},
 	config = function()
 		local comment = require("Comment")
-		-- local ft = require("Comment.ft")
+		local ft = require("Comment.ft")
 
-		-- ft.blade = { "<!--%s-->", "/*%s*/" }
+		ft.blade = { "<!--%s-->", "/*%s*/" }
 
 		local ts_context_commentstring = require("ts_context_commentstring.integrations.comment_nvim")
 
