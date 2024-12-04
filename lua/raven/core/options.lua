@@ -1,10 +1,10 @@
 local opt = vim.opt
 
 -- folding
--- opt.foldcolumn = "1"
--- opt.foldlevel = 99
--- opt.foldlevelstart = 99
--- opt.foldenable = true
+opt.foldcolumn = "1"
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
 
 -- turn on termguicolors
 opt.termguicolors = true
@@ -21,12 +21,14 @@ opt.expandtab = true
 opt.autoindent = true
 
 opt.wrap = false
+opt.showmode = false
 
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
 
 -- opt.cursorline = true
+-- opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 opt.scrolloff = 8
 

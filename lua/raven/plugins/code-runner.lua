@@ -35,7 +35,7 @@ return {
 
 		local keymap = vim.keymap
 
-		keymap.set("n", "<leader>r", ":RunCode<CR>", { noremap = true, silent = false, desc = "CodeRunner run code" })
+		-- keymap.set("n", "<leader>r", ":RunCode<CR>", { noremap = true, silent = false, desc = "CodeRunner run code" })
 		keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false, desc = "CodeRunner run file" })
 		-- keymap.set(
 		-- 	"n",

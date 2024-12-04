@@ -4,6 +4,7 @@ return {
 	version = "*",
 	opts = {
 		options = {
+			mode = "tabs",
 			indicator = {
 				style = "none",
 			},
