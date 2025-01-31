@@ -6,6 +6,7 @@ return {
 		"nvim-neotest/neotest-go",
 		-- "olimorris/neotest-phpunit",
 		"V13Axel/neotest-pest",
+		"marilari88/neotest-vitest",
 	},
 	config = function()
 		-- get neotest namespace (api call creates or returns namespace)
@@ -24,6 +25,7 @@ return {
 				require("neotest-go"),
 				-- require("neotest-phpunit"),
 				require("neotest-pest"),
+				require("neotest-vitest"),
 			},
 		})
 

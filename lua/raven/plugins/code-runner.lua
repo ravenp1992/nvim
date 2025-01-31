@@ -20,11 +20,11 @@ return {
 				},
 				typescript = {
 					"cd $dir &&",
-					"bun $fileName",
+					"node $fileName",
 				},
 				javascript = {
 					"cd $dir &&",
-					"bun $fileName",
+					"node $fileName",
 				},
 				elixir = {
 					"cd $dir &&",

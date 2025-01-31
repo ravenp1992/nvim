@@ -54,7 +54,13 @@ return { -- Collection of various small independent pluins/modules
 		-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 		-- - sd'   - [S]urround [D]elete [']quotes
 		-- - sr)'  - [S]urround [R]eplace [)] [']
-		require("mini.surround").setup()
+		-- require("mini.surround").setup()
+
+		-- require("mini.comment").setup({
+		-- 	options = {
+		-- 		ignore_blank_line = true,
+		-- 	},
+		-- })
 
 		-- Mini-Pairs
 		require("mini.pairs").setup({})
@@ -66,18 +72,18 @@ return { -- Collection of various small independent pluins/modules
 		-- Not working because of yabai
 		-- require('mini.move').setup()
 
-		-- -- Configure Files with minimal UI
-		-- require("mini.files").setup({
-		-- 	windows = {
-		-- 		preview = true,
-		-- 	},
-		-- })
-		-- vim.keymap.set(
-		-- 	"n",
-		-- 	"<leader>ee",
-		-- 	":lua MiniFiles.open()<CR>",
-		-- 	{ noremap = true, silent = true, desc = "MiniFile [E]xplorer" }
-		-- )
+		-- Configure Files with minimal UI
+		require("mini.files").setup({
+			windows = {
+				preview = true,
+			},
+		})
+		vim.keymap.set(
+			"n",
+			"<leader>ee",
+			":lua MiniFiles.open()<CR>",
+			{ noremap = true, silent = true, desc = "MiniFile [E]xplorer" }
+		)
 
 		-- mini.jump
 		-- require('mini.jump').setup {}

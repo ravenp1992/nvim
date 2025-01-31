@@ -1,4 +1,16 @@
 -- return {
+-- 	"folke/tokyonight.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		require("tokyonight").setup()
+
+-- 		vim.cmd.colorscheme("tokyonight")
+-- 	end,
+-- }
+
+-- return {
 -- 	"catppuccin/nvim",
 -- 	name = "catppuccin",
 -- 	priority = 1000,
@@ -15,6 +27,23 @@
 -- 		})
 
 -- 		vim.cmd.colorscheme("catppuccin")
+-- 	end,
+-- }
+
+-- return {
+-- 	"shaunsingh/nord.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd.colorscheme("nord")
+-- 	end,
+-- }
+
+-- return {
+-- 	"fcancelinha/nordern.nvim",
+-- 	branch = "master",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.cmd.colorscheme("nordern")
 -- 	end,
 -- }
 

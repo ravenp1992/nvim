@@ -20,9 +20,9 @@ return {
 
 		mason_lspconfig.setup({
 			ensure_installed = {
+				"ts_ls",
 				"html",
 				"cssls",
-				"tailwindcss",
 				"lua_ls",
 				"intelephense",
 			},

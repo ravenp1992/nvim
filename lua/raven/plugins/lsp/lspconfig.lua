@@ -3,7 +3,6 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/lazydev.nvim", opts = {} },
 		{ "saghen/blink.cmp" },
 	},
 	config = function()
@@ -62,14 +61,7 @@ return {
 			end,
 		})
 
-		-- used to enable autocompletion (assign to every lsp server config)
-		-- local capabilities = cmp_nvim_lsp.default_capabilities()
-		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 		local capabilities = blink_cmp.get_lsp_capabilities()
-		capabilities.textDocument.foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly = true,
-		}
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		-- (not in youtube nvim video)
@@ -79,69 +71,11 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		local function add_ruby_deps_command(client, bufnr)
-			vim.api.nvim_buf_create_user_command(bufnr, "ShowRubyDeps", function(opts)
-				local params = vim.lsp.util.make_text_document_params()
-				local showAll = opts.args == "all"
-
-				client.request("rubyLsp/workspace/dependencies", params, function(error, result)
-					if error then
-						print("Error showing deps: " .. error)
-						return
-					end
-
-					local qf_list = {}
-					for _, item in ipairs(result) do
-						if showAll or item.dependency then
-							table.insert(qf_list, {
-								text = string.format("%s (%s) - %s", item.name, item.version, item.dependency),
-								filename = item.path,
-							})
-						end
-					end
-
-					vim.fn.setqflist(qf_list)
-					vim.cmd("copen")
-				end, bufnr)
-			end, {
-				nargs = "?",
-				complete = function()
-					return { "all" }
-				end,
-			})
-		end
-
 		mason_lspconfig.setup_handlers({
 			-- default handler for installed servers
 			function(server_name)
-				lspconfig[server_name].setup({})
-			end,
-			["ts_ls"] = function()
-				local vue_typescript_plugin = require("mason-registry")
-					.get_package("vue-language-server")
-					:get_install_path() .. "/node_modules/@vue/language-server" .. "/node_modules/@vue/typescript-plugin"
-
-				-- configure svelte server
-				lspconfig["ts_ls"].setup({
+				lspconfig[server_name].setup({
 					capabilities = capabilities,
-					init_options = {
-						plugins = {
-							{
-								name = "@vue/typescript-plugin",
-								location = vue_typescript_plugin,
-								languages = { "javascript", "typescript", "vue" },
-							},
-						},
-					},
-					filetypes = {
-						"javascript",
-						"javascriptreact",
-						"javascript.jsx",
-						"typescript",
-						"typescriptreact",
-						"typescript.tsx",
-						"vue",
-					},
 				})
 			end,
 			["svelte"] = function()
@@ -159,9 +93,9 @@ return {
 					end,
 				})
 			end,
-			["emmet_language_server"] = function()
+			["emmet_ls"] = function()
 				-- configure emmet language server
-				lspconfig["emmet_language_server"].setup({
+				lspconfig["emmet_ls"].setup({
 					capabilities = capabilities,
 					filetypes = {
 						"html",
@@ -173,8 +107,6 @@ return {
 						"less",
 						"svelte",
 						"blade",
-						"heex",
-						"vue",
 					},
 				})
 			end,
@@ -193,24 +125,6 @@ return {
 							},
 						},
 					},
-				})
-			end,
-			["ruby_lsp"] = function()
-				-- configure lua server (with special settings)
-				lspconfig["ruby_lsp"].setup({
-					cmd = { vim.fn.expand("~/.local/share/mise/installs/ruby/3.3.5/bin/ruby-lsp") },
-					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						add_ruby_deps_command(client, bufnr)
-					end,
-				})
-			end,
-			["lexical"] = function()
-				-- configure lua server (with special settings)
-				lspconfig["lexical"].setup({
-					-- capabilities = capabilities,
-					filetypes = { "elixir", "eelixir", "heex" },
-					cmd = { "/Users/ravenparagas/lsp/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
 				})
 			end,
 		})
