@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- TODO:
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
