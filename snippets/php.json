@@ -1,0 +1,58 @@
+{
+  "sdoc": {
+    "prefix": "sdoc",
+    "description": "Create single line phpdoc",
+    "body": ["/** @${1:foo} */"]
+  },
+  "mdoc": {
+    "prefix": "mdoc",
+    "description": "Create multi line phpdoc",
+    "body": ["/**", " * @${1:foo}", " */"]
+  },
+  "inv": {
+    "prefix": "inv",
+    "description": "Create PHP __invoke method",
+    "body": [
+      "public function __invoke(${1}): ${2:void}",
+      "{",
+      "    ${3}",
+      "}",
+      ""
+    ]
+  },
+  "fun": {
+    "prefix": "fun",
+    "description": "Create a function",
+    "body": ["function ${1}(${2}) ${3}", "{", "   ${0}", "}", ""]
+  },
+  "afun": {
+    "prefix": "afun",
+    "description": "Create anonymous function",
+    "body": ["function (${1})", "{", "   ${0}", "}", ""]
+  },
+  "arfun": {
+    "prefix": "arfun",
+    "description": "Create arrow function",
+    "body": ["fn(${1}) => ${0}"]
+  },
+  "pubf": {
+    "prefix": "pubf",
+    "description": "Create a public method",
+    "body": ["public function ${1}(${2}) ${3}", "{", "   ${0}", "}", ""]
+  },
+  "protected method": {
+    "prefix": "prof",
+    "description": "Create a protected method",
+    "body": ["protected function ${1}(${2}) ${3}", "{", "    ${0}", "}", ""]
+  },
+  "private method": {
+    "prefix": "prif",
+    "description": "Create a private method",
+    "body": ["private function ${1}(${2}) ${3}", "{", "    ${0}", "}", ""]
+  },
+  "public static method": {
+    "prefix": "pubsf",
+    "description": "Create a public static method",
+    "body": ["public static function ${1}(${2}) ${3}", "{", "    ${0}", "}", ""]
+  }
+}

@@ -8,8 +8,8 @@ return {
 		local comment = require("Comment")
 		local ft = require("Comment.ft")
 
-		ft.php = { "//%s", "/*%s*/" }
-		ft.blade = { "{{--%s--}}", "<!--%s-->", "/*%s*/" }
+		-- ft.php = { "// %s", "/* %s */" }
+		ft.blade = { "{{-- %s --}}" }
 
 		local ts_context_commentstring = require("ts_context_commentstring.integrations.comment_nvim")
 

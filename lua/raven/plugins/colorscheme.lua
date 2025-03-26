@@ -1,4 +1,66 @@
 -- return {
+-- 	"sontungexpt/witch",
+-- 	priority = 1000,
+-- 	lazy = false,
+-- 	config = function(_, opts)
+-- 		require("witch").setup({
+-- 			dim_inactive = {
+-- 				enabled = true,
+-- 				-- from 0 to 1
+-- 				-- as nearer to 1 the dimming will be lighter
+-- 				level = 0.9,
+-- 			},
+-- 		})
+-- 	end,
+-- }
+
+-- return {
+-- 	"olivercederborg/poimandres.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("poimandres").setup({
+-- 			-- leave this setup function empty for default config
+-- 			-- or refer to the configuration section
+-- 			-- for configuration options
+-- 		})
+-- 	end,
+
+-- 	-- optionally set the colorscheme within lazy config
+-- 	init = function()
+-- 		vim.cmd("colorscheme poimandres")
+-- 	end,
+-- }
+
+-- return {
+-- 	"AlexvZyl/nordic.nvim",
+-- 	priority = 1000,
+-- 	lazy = false,
+-- 	config = function()
+-- 		require("nordic").load()
+-- 	end,
+-- }
+
+-- return {
+-- 	"Yazeed1s/oh-lucy.nvim",
+-- 	priority = 1000,
+-- 	lazy = false,
+-- 	config = function()
+-- 		vim.cmd.colorscheme("oh-lucy")
+-- 	end,
+-- }
+
+-- return {
+-- 	"eldritch-theme/eldritch.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		vim.cmd.colorscheme("eldritch")
+-- 	end,
+-- }
+
+-- return {
 -- 	"folke/tokyonight.nvim",
 -- 	lazy = false,
 -- 	priority = 1000,

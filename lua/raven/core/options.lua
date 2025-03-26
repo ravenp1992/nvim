@@ -1,56 +1,57 @@
-local opt = vim.opt
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- folding
-opt.foldcolumn = "1"
-opt.foldlevel = 99
-opt.foldlevelstart = 99
-opt.foldenable = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
--- turn on termguicolors
-opt.termguicolors = true
-opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
-opt.relativenumber = true
-opt.number = true
+vim.opt.breakindent = true
 
--- tabs & indentation
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.autoindent = true
+vim.opt.wrap = false
+vim.opt.showmode = false
 
-opt.wrap = false
-opt.showmode = false
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
--- search settings
-opt.ignorecase = true
-opt.smartcase = true
+-- vim.opt.cursorline = true
 
--- opt.cursorline = true
--- opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.signcolumn = "yes"
 
-opt.scrolloff = 8
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
 
--- no swap file, no backup, undofile, set undodir
-opt.swapfile = false
-opt.backup = false
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-opt.undofile = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
--- backspace
-opt.backspace = "indent,eol,start"
+vim.opt.scrolloff = 8
+-- vim.opt.cmdheight = 0
 
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
--- split window
-opt.splitright = true
-opt.splitbelow = true
+vim.opt.inccommand = "split"
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "*",
-	callback = function()
-		vim.opt.formatoptions:remove({ "c", "r", "o" })
-	end,
-})
+vim.opt.laststatus = 3
+vim.opt.splitkeep = "screen"
+
+vim.opt.confirm = true
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
+vim.schedule(function()
+	vim.opt.clipboard = "unnamedplus"
+end)
+
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		vim.opt_local.formatoptions:remove({ "r", "o" })
+-- 	end,
+-- })

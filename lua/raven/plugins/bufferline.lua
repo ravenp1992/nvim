@@ -1,15 +1,14 @@
 return {
 	"akinsho/bufferline.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
 	version = "*",
-	opts = {
-		options = {
-			mode = "tabs",
-			indicator = {
-				style = "none",
+	dependencies = "nvim-tree/nvim-web-devicons",
+	enabled = false,
+	config = function()
+		require("bufferline").setup({
+			options = {
+				mode = "buffers",
+				always_show_bufferline = false,
 			},
-			separator_style = { "", "" },
-		},
-	},
-	config = true,
+		})
+	end,
 }

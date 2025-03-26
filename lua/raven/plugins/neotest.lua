@@ -3,10 +3,13 @@ return {
 	dependencies = {
 		"nvim-neotest/nvim-nio",
 		"nvim-lua/plenary.nvim",
-		"nvim-neotest/neotest-go",
+		{ "fredrikaverpil/neotest-golang", version = "*" }, -- Installation
+		-- "nvim-neotest/neotest-go",
 		-- "olimorris/neotest-phpunit",
 		"V13Axel/neotest-pest",
 		"marilari88/neotest-vitest",
+		"nvim-neotest/neotest-python",
+		"lawrence-laz/neotest-zig",
 	},
 	config = function()
 		-- get neotest namespace (api call creates or returns namespace)
@@ -22,10 +25,15 @@ return {
 		require("neotest").setup({
 			-- your neotest config here
 			adapters = {
-				require("neotest-go"),
+				require("neotest-golang"),
 				-- require("neotest-phpunit"),
 				require("neotest-pest"),
 				require("neotest-vitest"),
+				require("neotest-python")({
+					runner = "pytest",
+					python = ".venv/bin/python",
+				}),
+				require("neotest-zig"),
 			},
 		})
 

@@ -10,6 +10,10 @@ return {
 					"cd $dir &&",
 					"go run $fileName",
 				},
+				odin = {
+					"cd $dir &&",
+					"odin run $fileName -file",
+				},
 				php = {
 					"cd $dir &&",
 					"php $fileName",
@@ -20,7 +24,7 @@ return {
 				},
 				typescript = {
 					"cd $dir &&",
-					"node $fileName",
+					"bun run $fileName",
 				},
 				javascript = {
 					"cd $dir &&",
